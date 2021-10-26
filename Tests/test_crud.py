@@ -41,4 +41,3 @@ def test_crud():
     test_update()
     test_delete()
 test_crud()
-print("heu")

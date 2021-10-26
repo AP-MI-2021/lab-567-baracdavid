@@ -8,21 +8,21 @@ def get_new_book (_id: int, _titlu: str, _gen: str, _preț: int, _reducere: str)
         'reducere':_reducere
     }
     return book
-def get_id(carte):
-    return carte['id']
+def get_id(vanzare):
+    return vanzare['id']
 
-def get_titlu(carte):
-    return carte['titlu']
+def get_titlu(vanzare):
+    return vanzare['titlu']
 
-def get_gen(carte):
-    return carte['gen']
+def get_gen(vanzare):
+    return vanzare['gen']
 
-def get_pret(carte):
-    return carte['pret']
+def get_pret(vanzare):
+    return vanzare['pret']
 
-def get_reducere(carte):
-    return carte['reducere']
+def get_reducere(vanzare):
+    return vanzare['reducere']
 
-def get_book_string(carte):
-    return f'Cartea cu id-ul {get_id(carte)},cu titlul {get_titlu(carte)},cu genul {get_gen(carte)}'
+def get_book_string(vanzare):
+    return f'vanzarea cu id-ul {get_id(vanzare)},cu titlul {get_titlu(vanzare)},cu genul {get_gen(vanzare)}'
 
