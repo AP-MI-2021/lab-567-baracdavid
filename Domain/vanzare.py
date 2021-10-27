@@ -1,13 +1,11 @@
-from Domain.librarie import add_book
-def get_new_book (_id: int, _titlu: str, _gen: str, _preț: int, _reducere: str):
-    book = {
+def create_vanzare (_id: int, _titlu: str, _gen: str, _preț: int, _reducere: str):
+    return  {
         'id':_id,
         'titlu':_titlu,
         'gen':_gen,
         'pret':_preț,
-        'reducere':_reducere
+        'reducere':_reducere,
     }
-    return book
 def get_id(vanzare):
     return vanzare['id']
 
@@ -23,6 +21,6 @@ def get_pret(vanzare):
 def get_reducere(vanzare):
     return vanzare['reducere']
 
-def get_book_string(vanzare):
-    return f'vanzarea cu id-ul {get_id(vanzare)},cu titlul {get_titlu(vanzare)},cu genul {get_gen(vanzare)}'
+def get_string(vanzare):
+    return f'vanzarea cu id-ul {get_id(vanzare)},cu titlul {get_titlu(vanzare)},cu genul {get_gen(vanzare)} si cu pretul {get_pret(vanzare)}'
 

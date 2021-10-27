@@ -1,28 +1,27 @@
-from Domain.carte import get_new_book, get_id
+from Domain.vanzare import create_vanzare, get_id
 
-
-def create(lista_carti: list,_id: int, _titlu: str, _gen: str, _preț: int, _reducere: str):
-    carte=get_new_book(_id,_titlu,_gen,_preț,_reducere)
-    #lista_carti.append(carte)
+def create(lista_vanzari: list,_id: int, _titlu: str, _gen: str, _preț: int, _reducere: str):
+    vanzare=create_vanzare(_id, _titlu, _gen, _preț, _reducere)
+    #lista_vanzari.append(carte)
     #return lista_carti
-    return  lista_carti + [carte]
-def read(lista_carti: list,id_carte: int=None):
-    carte_gasita=None
-    for carte in lista_carti:
-        if get_id(carte)==id_carte:
-            carte_gasita=carte
-    return carte_gasita
-def update(lista_carti,new_book):
+    return  lista_vanzari + [vanzare]
+def read(lista_vanzari: list, id_carte: int=None):
+    vanzare_gasita=None
+    for vanzare in lista_vanzari:
+        if get_id(vanzare)==id_carte:
+            vanzare_gasita=vanzare
+    return vanzare_gasita
+def update(lista_vanzari, new_sell):
     result_list=[]
-    for carte in lista_carti:
-        if get_id(carte)==get_id(new_book):
-            result_list.append(new_book)
+    for vanzare in lista_vanzari:
+        if get_id(vanzare)==get_id(new_sell):
+            result_list.append(new_sell)
         else:
-            result_list.append(carte)
-    return  result_list
-def delete(lista_carti: list,id_carte: int):
+            result_list.append(vanzare)
+    return result_list
+def delete(lista_vanzari: list, id_carte: int):
     result_list=[]
-    for carte in lista_carti:
-        if get_id(carte)!=id_carte:
-            result_list.append(carte)
+    for vanzari in lista_vanzari:
+        if get_id(vanzari)!=id_carte:
+            result_list.append(vanzari)
     return result_list
