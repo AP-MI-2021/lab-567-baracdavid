@@ -1,4 +1,4 @@
-from Domain.vanzare import create_vanzare, get_id
+from Domain.vanzare2 import create_vanzare, get_id
 from Logic.crud import create, read, update, delete
 
 

@@ -1,4 +1,4 @@
-from Domain.vanzare import create_vanzare, get_id
+from Domain.vanzare2 import create_vanzare, get_id
 
 def create(lista_vanzari: list,_id: int, _titlu: str, _gen: str, _preț: int, _reducere: str):
     vanzare=create_vanzare(_id, _titlu, _gen, _preț, _reducere)
