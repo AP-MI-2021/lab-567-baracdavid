@@ -1,5 +1,7 @@
 from Domain.vanzare2 import get_string, create_vanzare
 from Logic.crud import delete, create, update
+from Logic.modificare_gen import modificare_gen_dupa_titlu
+from Logic.reducere_pret import reducere_pret
 
 
 def show_menu():
@@ -8,7 +10,9 @@ def show_menu():
             1.Adaugare o vanzare de carte
             2.Sterge o vanzare
             3.Modifica o vanzare dupa id
-            4.Listeaza vanzari
+            4.Listeaza vanzarile
+            5.Aplicarea unui discount de 5% pentru toate reducerile silver și 10% pentru toate reducerile gold.
+            6.Modificarea genului pentru un titlu dat.
             x.Inchide programul
         """
 )
@@ -50,6 +54,25 @@ def handle_show_all(lista_vanzari):
     for vanzare in lista_vanzari:
         print(get_string(vanzare))
 
+def handle_reducere_pret(lista_vanzari):
+    try:
+        vanzare = reducere_pret(lista_vanzari)
+
+        print('Preturile au fost reduse cu succes.')
+    except ValueError as ve:
+        print('Eroare:', ve)
+
+    return vanzare
+def handle_modificare_gen_dupa_titlu(lista_vanzari):
+    try:
+        titlu = input('Dati titlul pentru care vreti sa modificati genul: ')
+        gen= input('Dati noul gen: ')
+        lista_vanzari = modificare_gen_dupa_titlu(lista_vanzari,titlu,gen)
+        print('Genul a fost modificat cu succes.')
+    except ValueError as ve:
+        print('Eroare:', ve)
+
+    return lista_vanzari
 def handle_menu(lista_vanzari):
     while True:
         show_menu()
@@ -62,6 +85,10 @@ def handle_menu(lista_vanzari):
             lista_vanzari = handle_update(lista_vanzari)
         if optiune == '4':
             handle_show_all(lista_vanzari)
+        if optiune == '5':
+            lista_vanzari = handle_reducere_pret(lista_vanzari)
+        if optiune == '6':
+            lista_vanzari = handle_modificare_gen_dupa_titlu(lista_vanzari)
         if optiune == 'x':
             break
     return lista_vanzari
