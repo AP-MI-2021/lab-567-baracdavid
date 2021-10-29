@@ -13,6 +13,7 @@ def show_menu():
             4.Listeaza vanzarile
             5.Aplicarea unui discount de 5% pentru toate reducerile silver și 10% pentru toate reducerile gold.
             6.Modificarea genului pentru un titlu dat.
+            7.
             x.Inchide programul
         """
 )
