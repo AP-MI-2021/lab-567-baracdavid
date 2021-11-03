@@ -1,4 +1,13 @@
 def create_vanzare (_id: int, _titlu: str, _gen: str, _preț: int, _reducere: str):
+    """
+
+    :param _id: id-ul vanzarii
+    :param _titlu: titlul
+    :param _gen: genul
+    :param _preț: pretul vanzarii
+    :param _reducere: reducerea vanzarii
+    :return:
+    """
     return  [
         _id,
         _titlu,
