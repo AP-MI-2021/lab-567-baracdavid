@@ -6,6 +6,12 @@ from Logic.crud import create, delete, update
 def command_line_console(vanzari):
     # add 1, Name, Gen, Price, Type
     command_line_str = input('Introduceti comanda(separator comenzi ";" iar separator paraetri ","): ')
+    print('''
+        exemple de comenzi:add,1,2,4,5,none;delete,1;update,1,222,422,225,silver;showall
+    ''')
+
+
+
     command_lines = command_line_str.split(';')
     for index in range(0, len(command_lines)):
         command = command_lines[index].split(',')
