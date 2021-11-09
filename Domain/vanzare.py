@@ -1,4 +1,4 @@
-def create_vanzare (_id: int, _titlu: str, _gen: str, _preț: int, _reducere: str):
+def create_vanzare (_id: int, _titlu: str, _gen: str, _pret: float, _reducere: str):
     return  {
         'id':_id,
         'titlu':_titlu,

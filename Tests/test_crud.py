@@ -1,5 +1,3 @@
-from Domain.vanzare2 import create_vanzare, get_id
-from Logic.crud import create, read, update, delete
 
 
 def get_data():
@@ -7,7 +5,7 @@ def get_data():
         create_vanzare(1, "ion", "lectura", 100, "none"),
         create_vanzare(2, "Baltag", "actiue", 70, "silver"),
         create_vanzare(3, "Ana", "Drama", 20, "gold"),
-        create_vanzare(4, "Povesti", "lectura", 48, "none"),
+        create_vanzare(5, "Povesti", "lectura", 48, "none"),
     ]
 def test_create():
     list=get_data()

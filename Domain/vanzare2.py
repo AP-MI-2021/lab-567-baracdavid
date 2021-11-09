@@ -1,4 +1,4 @@
-def create_vanzare (_id: int, _titlu: str, _gen: str, _preț: int, _reducere: str):
+def create_vanzare (_id: int, _titlu: str, _gen: str, _pret: float, _reducere: str):
     """
 
     :param _id: id-ul vanzarii
@@ -12,7 +12,7 @@ def create_vanzare (_id: int, _titlu: str, _gen: str, _preț: int, _reducere: st
         _id,
         _titlu,
         _gen,
-        _preț,
+        _pret,
         _reducere,
     ]
 def get_id(vanzare):

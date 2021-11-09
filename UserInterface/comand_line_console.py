@@ -8,7 +8,9 @@ from Logic.reducere_pret import reducere_pret
 def command_line_console(vanzari):
     # add 1, Name, Gen, Price, Type
     print('''
-           exemple de comenzi: add,1,Titlu_1,Gen_1,5,none;add,3,Titlu_3,Gen_3,5,none;add,20,Titlu_20,Gen_20,5,none;update,1,Titlu_1_nou,Gen_1_nou,225,silver;reducere;modifica_gen,Titlu_3,Gen_3_mod;showall
+           exemple de comenzi: add,1,Titlu_1,Gen_1,5,none;add,3,Titlu_3,Gen_3,5,none;
+           add,20,Titlu_20,Gen_20,5,none;update,1,Titlu_1_nou,Gen_1_nou,225,silver;reducere;
+           modifica_gen,Titlu_3,Gen_3_mod;showall
        ''')
     command_line_str = input('Introduceti comanda(separator comenzi ";" iar separator paraetri ","): ')
 

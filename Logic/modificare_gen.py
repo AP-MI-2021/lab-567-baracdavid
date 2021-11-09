@@ -1,7 +1,14 @@
-from Domain.vanzare2 import get_titlu, get_id, get_gen, get_pret, get_reducere, create_vanzare
+from Domain.vanzare2 import get_titlu, get_id, get_pret, get_reducere, create_vanzare
 
 
 def modificare_gen_dupa_titlu(lista_vanzari,titlu,gen_nou):
+    """
+
+    :param lista_vanzari:
+    :param titlu:
+    :param gen_nou:
+    :return: o lista noua cu genul modificatdupa un titlu
+    """
     if titlu== '':
         raise ValueError('Textul cautat nu poate fi gol.')
     result = []

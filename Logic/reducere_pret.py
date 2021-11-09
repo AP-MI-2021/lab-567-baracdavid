@@ -2,6 +2,11 @@ from Domain.vanzare2 import get_reducere, create_vanzare, get_pret, get_id, get_
 
 
 def reducere_pret(lst_vanzari):
+    """
+
+    :param lst_vanzari:
+    :return: o lista nous cu o reducere aplicata vanzarilor de tip silver sau gold
+    """
     result = []
     for vanzare in lst_vanzari:
         if get_reducere(vanzare)=="silver":
