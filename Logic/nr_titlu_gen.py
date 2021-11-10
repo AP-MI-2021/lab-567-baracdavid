@@ -14,15 +14,10 @@ def distinct_titles(vanzari):
     nr_titluri=[]
     g=[]
     for gen in genuri:
-        print("Gen",gen)
         n=0
         for vanzare in vanzari:
-            print("vanzare", vanzare)
             if gen == get_gen(vanzare):
                 n+=1
-            print("merge1")
-        print("merge2")
-
         nr_titluri.append(n)
         g.append(gen)
     return nr_titluri,g

@@ -1,3 +1,5 @@
+from Domain.vanzare2 import create_vanzare, get_id
+from Logic.crud import create, read, update, delete
 
 
 def get_data():
@@ -37,3 +39,4 @@ def test_crud():
     test_read()
     test_update()
     test_delete()
+test_crud()

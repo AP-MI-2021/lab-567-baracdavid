@@ -17,6 +17,7 @@ def show_menu():
     print('6. Afișarea numărului de titluri distincte pentru fiecare gen')
     print('z. Undo')
     print('y. Redo')
+    print('a. Afisare lista')
     print('c. Command line console')
 
     print('x. Exit')
@@ -73,8 +74,6 @@ def handle_min_price(vanzari):
         print(f'Genul {genuri[i]} are pretul minim de {preturi_minime[i]}.')
 def handle_nr_titluri_gen(vanzari):
     nr_titluri,genuri=distinct_titles(vanzari)
-    print("nr_titluri0",nr_titluri)
-    print("genuri",genuri)
     for i in range(0,len(nr_titluri)):
         print(f'Genul {genuri[i]} are {nr_titluri[i]} titluri.')
 def handle_command_console(vanzari):
@@ -115,15 +114,10 @@ def handle_undo(list_versions,current_version):
     current_version -= 1
     return list_versions[current_version],current_version
 def handle_redo(list_versions,current_version):
-    print("current version", current_version)
-    print(len(list_versions))
-    print("list_versions",list_versions)
     if current_version == len(list_versions)-1:
         print('Nu se mai poate face redo')
         return
-    print("inainte:", list_versions[current_version])
     current_version += 1
-    print("dupa:", list_versions[current_version])
     return list_versions[current_version],current_version
 
 def handle_crud(list_versions, current_version,vanzari):
@@ -156,7 +150,7 @@ def handle_crud(list_versions, current_version,vanzari):
                 print('Optiune invalida.')
         except Exception as ex:
             print('Eroare: ', ex)
-    return vanzari
+    return vanzari,list_versions, current_version
 def run_ui(vanzari):
     list_versions = [vanzari]
     current_version = 0
@@ -165,7 +159,7 @@ def run_ui(vanzari):
             show_menu()
             optiune = input('Optiunea aleasa: ')
             if optiune == '1':
-                vanzari = handle_crud(list_versions, current_version,vanzari)
+                vanzari, list_versions, current_version = handle_crud(list_versions, current_version,vanzari)
             elif optiune == '2':
                 vanzari = handle_modificare_gen_dupa_titlu(vanzari)
                 list_versions, current_version = handle_new_list(list_versions, current_version, vanzari)
@@ -176,8 +170,8 @@ def run_ui(vanzari):
                 vanzari = handle_ordonare_pret(vanzari)
                 list_versions, current_version = handle_new_list(list_versions, current_version, vanzari)
             elif optiune == '5':
-                vanzari = handle_min_price(vanzari)
-                list_versions, current_version = handle_new_list(list_versions, current_version, vanzari)
+                handle_min_price(vanzari)
+                # list_versions, current_version = handle_new_list(list_versions, current_version, vanzari)
             elif optiune == '6':
                 handle_nr_titluri_gen(vanzari)
             elif optiune == 'c':
@@ -187,9 +181,11 @@ def run_ui(vanzari):
                 vanzari,current_version = handle_undo(list_versions,current_version)
             elif optiune == 'y':
                 vanzari,current_version = handle_redo(list_versions,current_version)
-            elif optiune == 'q':
-                print("current_version",current_version)
-                print("list_versions",list_versions)
+            elif optiune == 'a':
+                handle_show_all(vanzari)
+            # elif optiune == 'q':
+            #     print("current_version",current_version)
+            #     print("list_versions",list_versions)
             elif optiune == 'x':
                 break
             else:
