@@ -6,6 +6,7 @@ from Logic.ordonare import ordonare_vanzari_pret
 from Logic.pret_min_gen import min_price_by_gen
 from Logic.reducere_pret import reducere_pret
 from Tests.test_crud import get_data
+from UserInterface.console import handle_new_list, handle_undo, handle_redo
 
 
 def test_reducere_pret():
@@ -35,14 +36,40 @@ def test_distinct_titles():
     assert nr_titluri[0] == 2
     assert nr_titluri[1] == 1
     assert genuri[0] == 'lectura'
-
-
-
-
+def test_undo():
+    lista=get_data()
+    current_version = 0
+    list_versions = [lista]
+    lista_noua = delete(lista,1)
+    list_versions,current_version=handle_new_list(list_versions,current_version,lista_noua)
+    assert current_version == 1
+    assert len(list_versions)==2
+    assert len(list_versions[current_version])==3
+    lista_noua,current_version=handle_undo(list_versions,current_version)
+    assert current_version == 0
+    assert len(lista_noua)==4
+def test_redo():
+    lista=get_data()
+    current_version = 0
+    list_versions = [lista]
+    lista_noua = delete(lista,1)
+    list_versions,current_version=handle_new_list(list_versions,current_version,lista_noua)
+    assert current_version == 1
+    assert len(list_versions)==2
+    assert len(list_versions[current_version])==3
+    lista_noua,current_version=handle_undo(list_versions,current_version)
+    assert current_version == 0
+    assert len(lista_noua)==4
+    lista_noua, current_version = handle_redo(list_versions, current_version)
+    assert current_version == 1
+    assert len(list_versions) == 2
+    assert len(list_versions[current_version]) == 3
 def test_all():
     test_reducere_pret()
     test_min_price_by_gen()
     test_ordonare()
     test_modificare_gen_dupa_titlu()
     test_distinct_titles()
+    test_undo()
+    test_redo()
 test_all()
