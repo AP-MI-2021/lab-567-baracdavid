@@ -35,13 +35,6 @@ def test_distinct_titles():
     assert nr_titluri[0] == 2
     assert nr_titluri[1] == 1
     assert genuri[0] == 'lectura'
-# def test_undo():
-#     list_versions=[]
-#     lista=get_data()
-#     list_versions.append(lista)
-#     curent_version=0
-#     lista_noua=delete(lista,1)
-#     list_versions.append(lista_noua)
 
 
 
